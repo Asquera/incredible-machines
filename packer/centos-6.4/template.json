@@ -4,13 +4,15 @@
       "type": "shell",
       "scripts": [
         "scripts/base.sh",
-        "scripts/vagrant.sh"
+        "scripts/vagrant.sh",
+        "scripts/puppet.sh"
       ],
       "override": {
         "virtualbox": {
           "scripts": [
             "scripts/base.sh",
             "scripts/vagrant.sh",
+            "scripts/puppet.sh",
             "scripts/virtualbox.sh"
           ]
         }
