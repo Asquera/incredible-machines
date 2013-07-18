@@ -3,12 +3,14 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/base.sh"
+        "scripts/base.sh",
+        "scripts/vagrant.sh"
       ],
       "override": {
         "virtualbox": {
           "scripts": [
             "scripts/base.sh",
+            "scripts/vagrant.sh",
             "scripts/virtualbox.sh"
           ]
         }
@@ -28,11 +30,11 @@
       "iso_checksum": "4a5fa01c81cc300f4729136e28ebe600",
       "iso_checksum_type": "md5",
       "iso_url": "http://mirror.de.leaseweb.net/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-minimal.iso",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
+      "ssh_username": "root",
+      "ssh_password": "root",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "sudo shutdown -P now",
+      "shutdown_command": "shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions.iso",
       "virtualbox_version_file": ".vbox_version",
       "vboxmanage": [
@@ -62,11 +64,11 @@
       "iso_checksum": "4a5fa01c81cc300f4729136e28ebe600",
       "iso_checksum_type": "md5",
       "iso_url": "http://mirror.de.leaseweb.net/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-minimal.iso",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
+      "ssh_username": "root",
+      "ssh_password": "root",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "sudo shutdown -P now",
+      "shutdown_command": "shutdown -P now",
       "vmx_data": {
         "memsize": "2048",
         "numvcpus": "1",

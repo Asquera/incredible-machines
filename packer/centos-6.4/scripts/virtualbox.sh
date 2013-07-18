@@ -1,7 +1,7 @@
 # Installing the virtualbox guest additions
 cd /tmp
-sudo mount -o loop /home/vagrant/VBoxGuestAdditions.iso /mnt
-sudo sh /mnt/VBoxLinuxAdditions.run
-sudo umount /mnt
-sudo rm -rf /home/vagrant/VBoxGuestAdditions.iso
+mount -o loop /root/VBoxGuestAdditions.iso /mnt
+sh /mnt/VBoxLinuxAdditions.run
+umount /mnt
+rm -rf /root/VBoxGuestAdditions.iso
 
