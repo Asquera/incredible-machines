@@ -1,0 +1,80 @@
+{
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/base.sh"
+      ],
+      "override": {
+        "virtualbox": {
+          "scripts": [
+            "scripts/base.sh",
+            "scripts/virtualbox.sh"
+          ]
+        }
+      }
+    }
+  ],
+  "builders": [
+    {
+      "type": "virtualbox",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "10s",
+      "disk_size": 220140,
+      "guest_os_type": "RedHat_64",
+      "http_directory": "http",
+      "iso_checksum": "4a5fa01c81cc300f4729136e28ebe600",
+      "iso_checksum_type": "md5",
+      "iso_url": "http://mirror.de.leaseweb.net/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-minimal.iso",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "sudo shutdown -P now",
+      "guest_additions_path": "VBoxGuestAdditions.iso",
+      "virtualbox_version_file": ".vbox_version",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "2048"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ]
+    },
+    {
+      "type": "vmware",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "10s",
+      "disk_size": 220140,
+      "guest_os_type": "rhel6-64",
+      "http_directory": "http",
+      "iso_checksum": "4a5fa01c81cc300f4729136e28ebe600",
+      "iso_checksum_type": "md5",
+      "iso_url": "http://mirror.de.leaseweb.net/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-minimal.iso",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "sudo shutdown -P now",
+      "vmx_data": {
+        "memsize": "2048",
+        "numvcpus": "1",
+        "cpuid.coresPerSocket": "1"
+      }
+    }
+  ],
+  "post-processors": [
+    "vagrant"
+  ]
+}
